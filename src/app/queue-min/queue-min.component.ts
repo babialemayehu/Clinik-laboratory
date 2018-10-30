@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Patient_queue } from '../model/Patient_queue'; 
-import { PatientQueueService } from '../service/patient-queue.service'; 
+import { LaboratoryQueueService } from '../service/laboratory-queue.service'; 
 import { Options } from '../model/Options';
 import { Router } from '@angular/router'; 
 
@@ -23,7 +23,7 @@ export class QueueMinComponent implements OnInit {
   set loadTriggr(value){
     this.load(); 
   }
-  constructor(private _queue: PatientQueueService, private _router: Router) { }
+  constructor(private _queue: LaboratoryQueueService, private _router: Router) { }
 
   ngOnInit() {
     this.load(); 

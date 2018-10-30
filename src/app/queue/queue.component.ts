@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort } from '@angular/material';
 import { QueueDataSource } from './queue-datasource';
-import { PatientQueueService} from '../service/patient-queue.service'; 
+import { LaboratoryQueueService } from '../service/laboratory-queue.service'; 
 import { Patient_queue } from '../model/Patient_queue'; 
 
 @Component({
@@ -16,7 +16,7 @@ export class QueueComponent implements OnInit {
 
   displayedColumns = ['reg_id', 'name', 'humanWaitingTime'];
 
-  constructor(private _queue: PatientQueueService){}
+  constructor(private _queue: LaboratoryQueueService){}
 
   ngOnInit() {
     this.dataSource = new QueueDataSource(this.paginator, this.sort, []);

@@ -58,4 +58,9 @@ export class UserService {
     let $url = this.root+"/ajax/update/password"; 
     return this.http.put<boolean>($url , {currentPassword:current, newPassword: newPassword}); 
   }
+
+  roomNumber(number: number): Observable<User>{
+    let $url = this.root+"/ajax/update/room number/"+number; 
+    return this.http.put<User>($url, {});
+  }
 }

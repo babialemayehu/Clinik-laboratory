@@ -21,6 +21,7 @@ import { RegisterationFormComponent } from './registeration-form/registeration-f
 import { HttpClientModule} from "@angular/common/http";
 import { AlertComponent } from './alert/alert.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { RoomNumberComponent } from './room-number/room-number.component';
 
 import { 
   MatButtonModule,
@@ -69,6 +70,12 @@ import { VisitsComponent } from './visits/visits.component';
 import { SetupDialogComponent } from './setup-dialog/setup-dialog.component';
 import { UploadComponent } from './upload_profile_pic/upload/upload.component';
 import { RouteComponent } from './upload_profile_pic/route/route.component';
+import { LabResquestsComponent } from './lab-resquests/lab-resquests.component';
+import { LabResultComponent } from './lab-result/lab-result.component';
+import { LabRequestsTableComponent } from './lab-requests-table/lab-requests-table.component';
+import { LabResponceDialogComponent } from './lab-responce-dialog/lab-responce-dialog.component'; 
+import { SavedStatesComponent } from './saved-states/saved-states.component';
+import { EmptyQueueComponent } from './empty-queue/empty-queue.component';
 
 @NgModule({
   declarations: [
@@ -99,7 +106,13 @@ import { RouteComponent } from './upload_profile_pic/route/route.component';
     SetupDialogComponent,
     UploadComponent,
     RouteComponent,
-   
+    RoomNumberComponent,
+    LabResquestsComponent,
+    LabResultComponent, 
+    LabRequestsTableComponent, 
+    LabResponceDialogComponent,
+    SavedStatesComponent,
+    EmptyQueueComponent,
     // ContextMenu,
   ],
   imports: [
@@ -135,8 +148,8 @@ import { RouteComponent } from './upload_profile_pic/route/route.component';
     // ContextMenu, 
     ContextMenuComponent,
     UserProfileModalComponent,
-    SetupDialogComponent
-
+    SetupDialogComponent, 
+    LabResponceDialogComponent
   ], 
   providers: [
     UserService, 

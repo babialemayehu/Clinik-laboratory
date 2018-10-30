@@ -1,37 +1,34 @@
 <section>
- <div class="row">
-   <div class="col m4 l3 s12">
-     <mat-card id="queue">
-       <app-queue-min [loadTriggr]="load"></app-queue-min>
+  <div class="row">
+    <div class="col m3">
+      <mat-card>
+        <app-queue-min></app-queue-min>
       </mat-card>
-   </div>
-   <div class="col m8 l9 s12">
-     <div class="center patinet-search" [class.no-search]="noSearch">
-       <h3 *ngIf="noSearch">Patient search</h3>
-       <div class="container search">
-         <app-patient-search (patient)="onSearch($event)"></app-patient-search>
+    </div>
+    <div class="col m9" style="margin-top: 5%">
+      <section>
+        <div class="row">
+          <mat-card style="width: 60%; margin: auto">
+            <div class="progress" [class.hide]="!loading" >
+              <div class="indeterminate"></div>
+            </div>
+            <div [class.form-loading]="loading">
+              <h3 class="center">Wellcome</h3>
+              <h6 class="center">Do you want to start treatement?</h6>
+              <br>
+              <div style="width: 80%; margin: auto;">
+                <app-room-number 
+                (status)="onStatus($event)" 
+                [roomNumber]="($auth)?.room_number"
+                ></app-room-number>           
+              </div>
+              <div style="width: 100%; text-align: center;">
+                <button mat-flat-button color="primary" (click)="next()">Start</button>
+              </div>
+            </div> 
+          </mat-card>
         </div>
-     </div>
-     <div id="show-area">
-        <mat-card *ngIf="!noSearch">
-          <mat-icon class="right" mat-icon-button [matMenuTriggerFor]="appMenu"style="cursor: pointer;">more_vert</mat-icon>
-          <mat-menu #appMenu="matMenu">
-            <button mat-menu-item (click)="edit()">
-              <mat-icon>edit</mat-icon>
-              <span>Edit</span> 
-            </button> 
-            <button mat-menu-item (click)="delete()">
-                <mat-icon color="red">delete</mat-icon>
-                <span>Delete</span> 
-              </button> 
-          </mat-menu> 
-          <app-patinet-view [patient]="patient"></app-patinet-view>
-          <br>
-          <button mat-button (click)="queue()" [disabled]='isQueued' class="right primary" style="color:white">Queue</button>
-          <button mat-button (click)="dequeue()" [disabled]='!isQueued' class="right danger-text">Dequeue</button>
-        </mat-card>
-     </div>
-     
-   </div>
- </div>
+      </section> 
+    </div>
+  </div>
 </section>
