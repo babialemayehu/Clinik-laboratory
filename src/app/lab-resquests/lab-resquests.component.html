@@ -33,7 +33,10 @@
       </div>
       
       <mat-card>
-        <div class="row">
+        <div class="progress" [class.hide]="!loading" >
+          <div class="indeterminate"></div>
+        </div>
+        <div class="row" [class.form-loading]="loading">
           <app-lab-requests-table 
           [requests]="$requests" 
           (rowClick)="respondDialog($event)"

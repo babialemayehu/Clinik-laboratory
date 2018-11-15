@@ -42,18 +42,4 @@ export class FloatingActionBtnComponent implements OnInit {
     );
   }
 
-  open(){
-    let options = document.getElementById('options');
-    options.classList.remove('close'); 
-    options.classList.add('open');
-  }
-
-  close(){
-    setTimeout(()=>{
-      let options = document.getElementById('options');
-      options.classList.remove('open');
-      options.classList.add('close');      
-    }, 500); 
-    
-  }
 }

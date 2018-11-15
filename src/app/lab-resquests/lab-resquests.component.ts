@@ -12,6 +12,8 @@ import { Patient_queue } from '../model/Patient_queue';
 import { DashboardComponent } from '../dashboard/dashboard.component'; 
 import { LaboratoryQueueService } from '../service/laboratory-queue.service';
 
+declare var M; 
+
 @Component({
   selector: 'app-lab-resquests',
   templateUrl: './lab-resquests.component.html',
@@ -49,7 +51,7 @@ export class LabResquestsComponent implements OnInit {
       }); 
     }
 
-  ngOnInit() {
+  ngOnInit() {   
     this._activeRoute.params.subscribe(
       (param) => {
         this._laboratory.getRequests(param.queue_id).subscribe(
@@ -86,8 +88,10 @@ export class LabResquestsComponent implements OnInit {
   }
 
   submit(){
+    this.loading = true; 
     this._laboratory.respond(this.$requests[0].hisstory_id, this.$requests ).subscribe(
       (response) => {
+        this.loading = false; 
         this.update.onFinish++; 
       }
     )
